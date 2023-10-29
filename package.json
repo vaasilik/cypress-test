@@ -31,8 +31,7 @@
     "release:changelog": "npm run conventional-changelog -- -p angular -i CHANGELOG.md -s",
     "cy:open": "cypress open",
     "cy:run":"cypress run"
-
-  },
+ },
   "dependencies": {
     "@agm/core": "^1.1.0",
     "@angular/animations": "^8.0.0",
