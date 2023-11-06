@@ -1,5 +1,5 @@
-describe("Тест 3", () => {
-    it("Сторінка /pages/forms/layouts", () => {
+describe("Verify layouts page", () => {
+    it("Page /pages/forms/layouts", () => {
       // Відкриття сторінки
       cy.visit("/pages/forms/layouts");
   

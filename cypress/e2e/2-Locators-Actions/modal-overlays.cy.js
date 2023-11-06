@@ -1,11 +1,11 @@
-describe("Тест 2", () => {
-    it("Сторінка /pages/modal-overlays/dialog", () => {
+describe("Verify modal overlays dialog", () => {
+    it("Page /pages/modal-overlays/dialog", () => {
       // Відкриваємо сторінку
       cy.visit("/pages/modal-overlays/dialog");
   
       // Натискаємо на кнопку, що викликає модальне вікно
-      cy.get("body > ngx-app > ngx-pages > ngx-one-column-layout > nb-layout > div.scrollable-container > div > div > div > div > nb-layout-column > ngx-modal-overlays > ngx-dialog > div > div:nth-child(5) > nb-card > nb-card-body > button").click();
-  
+      cy.contains("button", "Enter Name").click();
+      
       // Отримуємо елемент з модальним вікном
       cy.get('nb-dialog-container').within(() => {
         // Перевіряємо, що модальне вікно відкрито
