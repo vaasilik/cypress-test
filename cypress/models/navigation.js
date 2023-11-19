@@ -1,4 +1,4 @@
-import { AccordionPage } from '../pages/accordionPage';
+import { AccordionPage } from '../pageObjects/accordionPage';
 
 const accordionPage = new AccordionPage();
 

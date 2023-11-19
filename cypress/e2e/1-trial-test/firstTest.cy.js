@@ -1,5 +1,5 @@
-import { navigateToPage, verifyURLContains, verifyTextInElement } from '../models/navigation';
-import { AccordionPage } from '../pages/accordionPage';
+import { navigateToPage, verifyURLContains } from '../../models/navigation';
+import { AccordionPage } from '../pageObjects/accordionPage';
 
 describe('First test suite', () => {
   context('First test suite - context', () => {
