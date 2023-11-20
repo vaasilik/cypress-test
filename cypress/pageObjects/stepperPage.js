@@ -1,7 +1,6 @@
 export class StepperPage {
-  visitStepperPage() {
+  visitPage() {
     cy.visit("/pages/layout/stepper");
-    return this;
   }
 
   checkStepText(stepText) {
@@ -9,6 +8,9 @@ export class StepperPage {
     if (stepText !== "Step content #4") {
       cy.get('.appearance-filled:contains("next"):eq(0)').click();
     }
-    return this;
+  }
+
+  verifyStepContent(stepContent) {
+    cy.get(".step-content").should("contain", stepContent);
   }
 }

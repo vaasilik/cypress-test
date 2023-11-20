@@ -1,13 +1,14 @@
-export function navigateToDialogPage() {
+export class DialogPage {
+  visitPage() {
     cy.visit("/pages/modal-overlays/dialog");
   }
-  
-  export function openNameDialog() {
+
+  openNameDialog() {
     cy.contains("button", "Enter Name").click();
     cy.get('nb-dialog-container ngx-dialog-name-prompt').should('be.visible');
   }
-  
-  export function verifyDialogElements() {
+
+  verifyDialogElements() {
     cy.get('nb-dialog-container ngx-dialog-name-prompt').within(() => {
       cy.get('nb-card-header').should('contain', 'Enter your name');
       cy.get('input').should('be.visible');
@@ -15,4 +16,4 @@ export function navigateToDialogPage() {
       cy.get('button[status="danger"]').should('be.visible').and('contain', 'Cancel');
     });
   }
-  
+}
