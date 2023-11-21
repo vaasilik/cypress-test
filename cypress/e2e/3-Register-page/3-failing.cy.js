@@ -19,25 +19,22 @@
 //   });
 // });
 
-import { navigateToRegistrationPage, validateEmailError, typeFullNameInvalid, clickBody, typeEmailInvalid, typePasswordInvalid, validateFullNameError, validatePasswordError } from '../../models/registration';
-import { RegistrationPage } from '../../pageObjects/registrationPage'; 
-    describe('Registration Form Error Tests', () => {
+import { navigateToRegistrationPage, typeFullNameInvalid, clickBody, typeEmailInvalid, typePasswordInvalid, validateRegistrationError } from '../../models/registration';
+  describe('Registration Form Error Tests', () => {
     it('should validate fields and display error messages', () => {
 
-    const registrationPage = new RegistrationPage();
-    
     navigateToRegistrationPage();
 
     typeFullNameInvalid();
     clickBody();
-    validateFullNameError();
+    validateRegistrationError('Full name should contains from 4 to 50 characters');
 
     typeEmailInvalid();
     clickBody();
-    validateEmailError();
+    validateRegistrationError('Email should be the real one!');
 
     typePasswordInvalid();
     clickBody();
-    validatePasswordError();
+    validateRegistrationError('Password should contain from 4 to 50 characters');
   });
 });

@@ -37,32 +37,4 @@ export class RegistrationPage {
     cy.get('[data-name="facebook"]').should('exist');
     cy.get('[data-name="twitter"]').should('exist');
   }
-
-  validateFullNameError() {
-    cy.get('p.caption.status-danger').should('contain', 'Full name should contain from 4 to 50 characters');
-  }
-
-  validateEmailError() {
-    cy.get('p.caption.status-danger').should('contain', 'Email should be the real one!');
-  }
-
-  validatePasswordError(errorMessage) {
-    cy.get('p.caption.status-danger').should('contain', 'Password should contain from 4 to 50 characters');
-  }
-
-  typeFullNameInvalid() {
-    cy.get('[name="fullName"]').type('...');
-  }
-
-  typeEmailInvalid() {
-    cy.get('[name="email"]').type('33.22');
-  }
-
-  typePasswordInvalid() {
-    cy.get('[name="password"]').type('111');
-  }
-
-  clickBody() {
-    cy.get("body").click();
-  }
 }

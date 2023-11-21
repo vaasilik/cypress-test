@@ -41,6 +41,11 @@ export function validatePasswordError() {
     cy.get('p.caption.status-danger').should('contain', 'Password should contain from 4 to 50 characters');
 }
 
+export function validateRegistrationError(errorMessage) {
+    cy.get('p.caption.status-danger').should('contain.text', errorMessage);
+}
+
+
 
 // export function validateEmailError(selector, errorMessage) {
 //     typeEmailInvalid();
