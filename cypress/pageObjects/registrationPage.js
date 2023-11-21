@@ -38,21 +38,31 @@ export class RegistrationPage {
     cy.get('[data-name="twitter"]').should('exist');
   }
 
-  validateFullNameError(errorMessage) {
-    cy.get('[name="fullName"]').type('...');
-    cy.get("body").click();
-    cy.get('[name="fullName"] + p.caption.status-danger').should('contain', errorMessage);
+  validateFullNameError() {
+    cy.get('p.caption.status-danger').should('contain', 'Full name should contain from 4 to 50 characters');
   }
 
-  validateEmailError(errorMessage) {
-    cy.get('[name="email"]').type('33.22');
-    cy.get("body").click();
-    cy.get('[name="email"] + p.caption.status-danger').should('contain', errorMessage);
+  validateEmailError() {
+    cy.get('p.caption.status-danger').should('contain', 'Email should be the real one!');
   }
 
   validatePasswordError(errorMessage) {
+    cy.get('p.caption.status-danger').should('contain', 'Password should contain from 4 to 50 characters');
+  }
+
+  typeFullNameInvalid() {
+    cy.get('[name="fullName"]').type('...');
+  }
+
+  typeEmailInvalid() {
+    cy.get('[name="email"]').type('33.22');
+  }
+
+  typePasswordInvalid() {
     cy.get('[name="password"]').type('111');
+  }
+
+  clickBody() {
     cy.get("body").click();
-    cy.get('[name="password"] + p.caption.status-danger').should('contain', errorMessage);
   }
 }

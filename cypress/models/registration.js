@@ -13,20 +13,43 @@ export function checkFormHeadersAndLabels(registrationPage) {
     registrationPage.checkFormHeadersAndLabels();
 }
 
-export function validateFullNameError(errorMessage) {
+export function typeFullNameInvalid() {
     cy.get('[name="fullName"]').type('...');
-    cy.get("body").click();
-    cy.get('p.caption.status-danger').should('contain', errorMessage);
-  }
+}
   
-  export function validateEmailError(errorMessage) {
+export function typeEmailInvalid() {
     cy.get('[name="email"]').type('33.22');
+}
+  
+export function typePasswordInvalid() {
+    cy.get('[name="password"]').type('111');
+}
+  
+export function clickBody() {
     cy.get("body").click();
-    cy.get('p.caption.status-danger').should('contain', errorMessage);
+}
+  
+export function validateFullNameError() {
+    cy.get('p.caption.status-danger').should('contain', 'Full name should contain from 4 to 50 characters');
   }
   
-  export function validatePasswordError(errorMessage) {
-    cy.get('[name="password"]').type('111');
-    cy.get("body").click();
-    cy.get('p.caption.status-danger').should('contain', errorMessage);
-  }
+export function validateEmailError() {
+    cy.get('p.caption.status-danger').should('contain', 'Email should be the real one!');
+}
+
+export function validatePasswordError() {
+    cy.get('p.caption.status-danger').should('contain', 'Password should contain from 4 to 50 characters');
+}
+
+
+// export function validateEmailError(selector, errorMessage) {
+//     typeEmailInvalid();
+//     clickBody();
+//     cy.get(selector).should('contain', errorMessage);
+//   }
+  
+// export function validatePasswordError(selector, errorMessage) {
+//     typePasswordInvalid();
+//     clickBody();
+//     cy.get(selector).should('contain', errorMessage);
+//   }
